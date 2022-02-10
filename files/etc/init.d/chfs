@@ -1,0 +1,8 @@
+#!/bin/sh /etc/rc.common
+START=99
+start() {
+    /etc/chfs/chfs --file=/etc/chfs/chfs.ini
+}
+stop() {
+    echo 233 >>/tmp/chfs.log
+}
