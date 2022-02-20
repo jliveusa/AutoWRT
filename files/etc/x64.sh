@@ -28,7 +28,6 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
  
 # restart services
 # /etc/init.d/dnsmasq restart
-# /etc/init.d/frp restart
- /etc/init.d/frpc restart
+ /etc/init.d/frp restart
  /etc/init.d/mosdns restart
  /etc/init.d/shadowsocksr restart
