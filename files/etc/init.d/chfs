@@ -1,8 +1,23 @@
 #!/bin/sh /etc/rc.common
-START=99
-start() {
-    /etc/chfs/chfs --file=/etc/chfs/chfs.ini
+
+START=95
+STOP=15
+SERVICE_DAEMONIZE=1
+SERVICE=chfs
+USE_PROCD=1
+PROC="/etc/chfs/chfs --file=/etc/chfs/chfs.ini"
+ 
+start_service()
+ 
+{
+    procd_open_instance
+    procd_set_param command $PROC
+    procd_set_param respawn
+    procd_close_instance
+ 
 }
-stop() {
-    echo 233 >>/tmp/chfs.log
+ 
+service_triggers()
+{
+    procd_add_reload_trigger "rpcd"
 }
