@@ -21,7 +21,7 @@ env:
   REPO_URL: https://github.com/jliveusa/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/ARMv8.config
+  CONFIG_FILE: config/AX6.config
   DIY_P1_SH: scripts/diy1.sh
   DIY_P2_SH: scripts/diy3.sh
   UPLOAD_BIN_DIR: false
@@ -61,7 +61,7 @@ jobs:
         #keep_latest: 8
         #delete_tags: true
         delete_release: true
-        tag_name: ARMv8
+        tag_name: AX6
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
@@ -200,7 +200,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         #tag_name: ${{ steps.tag.outputs.release_tag }}
-        tag_name: ARMv8
+        tag_name: AX6
         body_path: release.txt
         files: |
           ${{ env.FIRMWARE }}/*
