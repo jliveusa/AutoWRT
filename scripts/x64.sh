@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# File name: diy2.sh for x64
-# Description: OpenWrt DIY script part 2 (After Update feeds for x64)
+# File name: diy.sh for x64
+# Description: OpenWrt DIY script part (After Update feeds)
 #
 
 # Modify default IP
