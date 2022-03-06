@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# File name: diy3.sh for armv8
-# Description: OpenWrt DIY script part 3 (After Update feeds for N1)
+# File name: diy.sh for armv8
+# Description: OpenWrt DIY script part (After Update feeds)
 #
 
 # Modify default IP
