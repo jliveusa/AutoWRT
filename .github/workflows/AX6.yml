@@ -22,7 +22,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6.config
-  DIY_P1_SH: scripts/diy1.sh
+  DIY_P1_SH: scripts/diy.sh
   DIY_P2_SH: scripts/AX6.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_PKG_DIR: true
