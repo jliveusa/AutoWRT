@@ -2,7 +2,7 @@
 # Description: Build Project using GitHub Actions
 #
 
-name: Build ARMv8 OpenWRT
+name: Build AX6 OpenWRT
 
 on:
   repository_dispatch:
