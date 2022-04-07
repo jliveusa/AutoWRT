@@ -83,9 +83,9 @@ jobs:
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
-        chmod +x $DIY_P1_SH
-        cp -f $DIY_P1_SH openwrt/diy1.sh
-        cd openwrt && ./diy1.sh
+        #chmod +x $DIY_P1_SH
+        #cp -f $DIY_P1_SH openwrt/diy1.sh
+        #cd openwrt && ./diy1.sh
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -100,8 +100,8 @@ jobs:
         # modify pdnsd
         # cp -f modified/10-disallow-aaaa.patch openwrt/package/lean/pdnsd-alt/patches/10-disallow-aaaa.patch
         chmod +x $DIY_P2_SH
-        cp -f $DIY_P2_SH openwrt/diy3.sh
-        cd openwrt && ./diy3.sh
+        cp -f $DIY_P2_SH openwrt/AX6.sh
+        cd openwrt && ./AX6.sh
 
     - name: SSH to Action
       uses: mxschmitt/action-tmate@master
