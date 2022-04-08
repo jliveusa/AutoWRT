@@ -57,10 +57,10 @@ net.ipv4.ip_local_port_range = 1024 65535
 net.ipv4.tcp_fin_timeout = 20
 net.ipv4.route.gc_timeout = 100
 fs.file-max=10485760
-# kernel.sysrq=1
+#kernel.sysrq=1
 net.ipv4.tcp_syn_retries = 2
 net.ipv4.tcp_retries2 = 11
-vm.overcommit_memory = 1
+vm.overcommit_memory = 2
 net.ipv4.tcp_timestamps = 1
 net.ipv4.tcp_fastopen = 3
 # 以下配置需要自行根据机器内存衡量，示例机器内存为 4G
@@ -75,23 +75,23 @@ net.ipv4.tcp_fastopen = 3
 #vps 1G内存
 #net.ipv4.tcp_mem = 65536 131072 196608
 #AX6 512M内存
-net.ipv4.tcp_mem = 32768 65536 98304
+#net.ipv4.tcp_mem = 32768 65536 98304
 # TCP Socket 接收缓冲区分配的最小字节数为 1K
 # 接收缓冲区在内存负载不高时的默认值 4K
 # 接收缓冲区的最大字节数 6M
-net.ipv4.tcp_rmem = 1024 4096 6291456
+#net.ipv4.tcp_rmem = 1024 4096 6291456
 # TCP Socket 发送缓冲区分配的最小字节数为 1K
 # 发送缓冲区在内存负载不高时的默认值 4K
 # 发送缓冲区的最大字节数 4M
-net.ipv4.tcp_wmem = 1024 4096 4194304
+#net.ipv4.tcp_wmem = 1024 4096 4194304
 # 其他协议如 UDP Socket 默认的数据发送缓冲区大小，单位字节，约 852.7K
-net.core.wmem_default = 873200
+#net.core.wmem_default = 873200
 # 各类 Socket 的最大数据发送缓冲区大小，单位字节，4M
-net.core.wmem_max = 4194304
+#net.core.wmem_max = 4194304
 # 其他协议如 UDP Socket 默认的数据接收缓冲区大小，单位字节，约 852.7K
-net.core.rmem_default = 873200
+#net.core.rmem_default = 873200
 # 各类 Socket 的最大数据接收缓冲区大小，单位字节，6M
-net.core.rmem_max = 6291456
+#net.core.rmem_max = 6291456
 EOF
 sed -i '$ r sysctl.txt' package/base-files/files/etc/sysctl.conf
 
