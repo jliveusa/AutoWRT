@@ -82,7 +82,7 @@ jobs:
        
     - name: Load custom feeds
       run: |
-        [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
+        #[ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         #chmod +x $DIY_P1_SH
         #cp -f $DIY_P1_SH openwrt/diy1.sh
         #cd openwrt && ./diy1.sh
