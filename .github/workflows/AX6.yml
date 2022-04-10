@@ -58,6 +58,7 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
+        echo "BRANCH=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
         
     - name: Remove old Releases
       uses: dev-drprasad/delete-tag-and-release@master
