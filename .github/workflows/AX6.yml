@@ -12,6 +12,10 @@ on:
         description: 'SSH to Action'
         required: false
         default: 'false'
+      branch:
+        description: 'Branch'
+        required: false
+        default: 'AX6'
       commit:
         description: 'Back to Commit'
         required: false
@@ -21,7 +25,6 @@ on:
 
 env:
   REPO_URL: https://github.com/jliveusa/lede
-  REPO_BRANCH: AX6
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/AX6.config
   DIY_P1_SH: scripts/diy.sh
@@ -71,7 +74,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone $REPO_URL -b $BRANCH openwrt
         cd openwrt
         git checkout $COMMIT
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
