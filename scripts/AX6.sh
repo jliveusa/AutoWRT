@@ -8,7 +8,7 @@
 sed -i 's/192.168.1.1/192.168.50.56/g' package/base-files/files/bin/config_generate
 
 # Fit my network
-sed -i 's/OpenWrt/Github AutoBuild @ OpenWrt/g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/OpenWrt/OpenWrt AutoBuild @ $(date +"%Y.%m.%d-%H%M")/g' package/lean/default-settings/files/zzz-default-settings
 
 # Set permission
 chmod -R 755 package
