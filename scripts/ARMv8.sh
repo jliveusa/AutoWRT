@@ -12,7 +12,7 @@ rm -f files/etc/x64.sh
 mv -f files/etc/armv8.sh files/etc/flyme.sh
 
 # Fit my network
-sed -i 's/OpenWrt/Github AutoBuild @ OpenWrt/g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/OpenWrt/OpenWrt AutoBuild @ $(date +"%Y.%m.%d-%H%M")' package/lean/default-settings/files/zzz-default-settings
 cat >network.txt<< EOF
 
 # echo '0 3 * * 6 /etc/flyme.sh >>/tmp/flyme.sh.log 2>&1' >> /etc/crontabs/root
