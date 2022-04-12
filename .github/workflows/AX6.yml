@@ -105,8 +105,6 @@ jobs:
       run: |
         # [ -e files ] && mv files openwrt/files && chmod -R 755 openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        modify pdnsd
-        cp -f modified/10-disallow-aaaa.patch openwrt/package/lean/pdnsd-alt/patches/10-disallow-aaaa.patch
         chmod +x $DIY_P2_SH
         cp -f $DIY_P2_SH openwrt/AX6.sh
         cd openwrt && ./AX6.sh
