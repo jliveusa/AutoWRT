@@ -14,11 +14,11 @@ on:
         default: 'false'
       repository:
         description: 'Repository URL'
-        required: false
+        required: true
         default: 'https://github.com/jliveusa/lede'
       branch:
         description: 'Branch'
-        required: false
+        required: true
         default: 'AX6'
       tag:
         description: 'Tag'
