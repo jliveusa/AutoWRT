@@ -22,7 +22,7 @@ on:
         default: 'AX6'
       tag:
         description: 'Tag'
-        required: false
+        required: true
         default: 'AX6'
       commit:
         description: 'Back to Commit'
