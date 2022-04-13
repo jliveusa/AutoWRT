@@ -195,7 +195,7 @@ jobs:
       with:
         #tag_name: ${{ steps.tag.outputs.release_tag }}
         tag_name: $TAG
-        body_path: release.txt
+        #body_path: release.txt
         files: |
           ${{ env.FIRMWARE }}/*
 
