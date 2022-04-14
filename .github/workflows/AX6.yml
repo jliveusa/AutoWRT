@@ -24,6 +24,10 @@ on:
         description: 'Tag'
         required: true
         default: 'AX6'
+      delete_tag:
+        description: 'Delete Tag'
+        required: true
+        default: 'AX6'
       commit:
         description: 'Back to Commit'
         required: false
@@ -66,7 +70,6 @@ jobs:
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
         echo "BRANCH=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
         echo "REPO_URL=${{ github.event.inputs.repository }}" >> $GITHUB_ENV
-        #echo "TAG=${{ github.event.inputs.tag }}" >> $GITHUB_ENV
         
     - name: Remove old Releases
       uses: dev-drprasad/delete-tag-and-release@master
@@ -75,7 +78,7 @@ jobs:
         #keep_latest: 8
         #delete_tags: true
         delete_release: true
-        tag_name: AX6
+        tag_name: ${{ github.event.inputs.delete_tag }}"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
