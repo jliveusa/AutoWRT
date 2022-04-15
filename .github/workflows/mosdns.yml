@@ -28,7 +28,7 @@ jobs:
           go-version: 1.17
           
       - run: |
-          cp -f `which go` /usr/bin/go
+          #cp -f `which go` /usr/bin/go
           echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
         
       - uses: actions/cache@main
