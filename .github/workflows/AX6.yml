@@ -32,8 +32,6 @@ on:
         description: 'Back to Commit'
         required: false
         default: ''
-  schedule:
-   - cron: '0 7 * * *'
 
 env:
   FEEDS_CONF: feeds.conf.default
