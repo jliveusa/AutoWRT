@@ -76,7 +76,7 @@ jobs:
         #keep_latest: 8
         #delete_tags: true
         delete_release: true
-        tag_name: ${{ github.event.inputs.delete_tag }}"
+        tag_name: ${{ github.event.inputs.delete_tag }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
