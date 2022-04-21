@@ -2,7 +2,7 @@
 # Description: Build Project using GitHub Actions
 #
 
-name: Build v2ray
+name: Build V2ray
 
 on:
   repository_dispatch:
