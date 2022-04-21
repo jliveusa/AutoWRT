@@ -26,6 +26,13 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
  chmod 755 xray_arm64 && mv -f xray_arm64 /usr/bin/xray
  cd ~ && rm -rf /tmp/xray
  
+ # update v2ray
+ mkdir -p /tmp/v2ray && cd /tmp/v2ray
+ wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/v2ray/v2ray.zip -O v2ray.zip
+ unzip v2ray.zip
+ chmod 755 v2ray_arm64 && mv -f v2ray_arm64 /usr/bin/v2ray
+ cd ~ && rm -rf /tmp/v2ray
+ 
 # restart services
 # /etc/init.d/dnsmasq restart
  /etc/init.d/frp restart
