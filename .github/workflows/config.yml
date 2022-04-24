@@ -17,7 +17,7 @@ env:
   REPO_URL: https://github.com/jliveusa/lede
   REPO_BRANCH: AX6
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/AX6.config
+  CONFIG_FILE: config/menuconfig.config
   DIY_P1_SH: scripts/diy.sh
   DIY_P2_SH: scripts/AX6.sh
   UPLOAD_BIN_DIR: false
