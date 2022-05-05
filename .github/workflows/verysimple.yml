@@ -75,7 +75,7 @@ jobs:
       with:
         tag_name: verysimple
         files: |
-          verysimple/cmd/verysimple/release/verysimple.zip
+          verysimple/cmd/verysimple/verysimple.zip
           
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
