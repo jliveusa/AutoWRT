@@ -66,7 +66,7 @@ jobs:
       uses: actions/upload-artifact@main
       with:
         name: verysimple_${{ env.FILE_DATE }}
-        path: verysimple/cmd/verysimple
+        path: v2ray_simple/cmd/verysimple
         
     - name: Upload firmware to release
       uses: softprops/action-gh-release@master
@@ -75,7 +75,7 @@ jobs:
       with:
         tag_name: verysimple
         files: |
-          verysimple/cmd/verysimple/verysimple.zip
+          v2ray_simple/cmd/verysimple/verysimple.zip
           
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
