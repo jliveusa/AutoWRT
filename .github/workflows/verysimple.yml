@@ -51,12 +51,12 @@ jobs:
     - name: Clone source code & Build
       run: |
         git clone https://github.com/e1732a364fed/v2ray_simple
-        cd v2ray_simple/cmd/verysimple && go mod download
         git checkout $COMMIT
-        CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -v -o ./release/verysimple_arm64 -trimpath -ldflags "-s -w -buildid=" ./main
-        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o ./release/verysimple_amd64 -trimpath -ldflags "-s -w -buildid=" ./main
-        upx --lzma --best ./release/verysimple_arm64
-        upx --lzma --best ./release/verysimple_amd64
+        cd v2ray_simple/cmd/verysimple && go bulid
+        #CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -v -o ./release/verysimple_arm64 -trimpath -ldflags "-s -w -buildid=" ./main
+        #CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o ./release/verysimple_amd64 -trimpath -ldflags "-s -w -buildid=" ./main
+        upx --lzma --best ./release/*
+        #upx --lzma --best ./release/verysimple_amd64
         echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
         zip -9j verysimple.zip ./release/*
         
