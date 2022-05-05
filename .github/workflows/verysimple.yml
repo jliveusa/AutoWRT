@@ -53,8 +53,10 @@ jobs:
         git clone https://github.com/e1732a364fed/v2ray_simple
         git checkout $COMMIT
         cd v2ray_simple/cmd/verysimple
-        CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build main.go -v -o ./release/verysimple_arm64 -trimpath -ldflags "-s -w -buildid="
-        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go -v -o ./release/verysimple_amd64 -trimpath -ldflags "-s -w -buildid="
+        make linux_amd64 linux_arm64
+        mkdir -p release
+        mv verysimple_linux_arm64 ./release/verysimple_arm64
+        mv verysimple_linux_amd64 ./release/verysimple_amd64
         upx --lzma --best ./release/verysimple_arm64
         upx --lzma --best ./release/verysimple_amd64
         echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
@@ -73,7 +75,7 @@ jobs:
       with:
         tag_name: verysimple
         files: |
-          verysimple/cmd/verysimple.zip
+          verysimple/cmd/verysimple/release/verysimple.zip
           
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
