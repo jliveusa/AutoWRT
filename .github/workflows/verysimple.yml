@@ -52,13 +52,13 @@ jobs:
       run: |
         git clone https://github.com/e1732a364fed/v2ray_simple
         git checkout $COMMIT
-        cd v2ray_simple/cmd/verysimple && go build
-        #CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -v -o ./release/verysimple_arm64 -trimpath -ldflags "-s -w -buildid=" ./main
-        #CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -v -o ./release/verysimple_amd64 -trimpath -ldflags "-s -w -buildid=" ./main
-        upx --lzma --best ./*
-        #upx --lzma --best ./release/verysimple_amd64
+        cd v2ray_simple/cmd/verysimple
+        CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build main.go -v -o ./release/verysimple_arm64 -trimpath -ldflags "-s -w -buildid="
+        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go -v -o ./release/verysimple_amd64 -trimpath -ldflags "-s -w -buildid="
+        upx --lzma --best ./release/verysimple_arm64
+        upx --lzma --best ./release/verysimple_amd64
         echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
-        zip -9j verysimple.zip ./*
+        zip -9j verysimple.zip ./release/*
         
     - name: Upload firmware directory
       uses: actions/upload-artifact@main
