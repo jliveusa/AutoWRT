@@ -12,10 +12,19 @@ on:
         description: 'SSH to Action'
         required: false
         default: 'true'
-
+      repository:
+        description: 'Repository URL'
+        required: true
+        default: 'https://github.com/jliveusa/lede'
+      branch:
+        description: 'Branch'
+        required: true
+        default: 'AX6'
+      commit:
+        description: 'Back to Commit'
+        required: false
+        default: ''
 env:
-  REPO_URL: https://github.com/jliveusa/lede
-  REPO_BRANCH: AX6
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/menuconfig.config
   DIY_P1_SH: scripts/diy.sh
@@ -48,12 +57,18 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        
+        # set environment
+        echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
+        echo "BRANCH=${{ github.event.inputs.branch }}" >> $GITHUB_ENV
+        echo "REPO_URL=${{ github.event.inputs.repository }}" >> $GITHUB_ENV
+
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
+        cd openwrt
+        git checkout $COMMIT        
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         
     - name: Load custom feeds
@@ -73,8 +88,6 @@ jobs:
       run: |
         #[ -e files ] && mv files openwrt/files && chmod -R 755 openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        # modify pdnsd
-        # cp -f modified/10-disallow-aaaa.patch openwrt/package/lean/pdnsd-alt/patches/10-disallow-aaaa.patch
         chmod +x $DIY_P2_SH
         cp -f $DIY_P2_SH openwrt/AX6.sh
         cd openwrt && ./AX6.sh
