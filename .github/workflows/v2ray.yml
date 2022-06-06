@@ -50,7 +50,7 @@ jobs:
 
     - name: Clone source code & Build
       run: |
-        git clone https://github.com/v2fly/v2ray-core
+        git clone https://github.com/SagerNet/v2ray-core
         cd v2ray-core && go mod download
         git checkout $COMMIT
         CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build -v -o ./release/v2ray_arm64 -trimpath -ldflags "-s -w -buildid=" ./main
