@@ -3,8 +3,7 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
 
 # update frp
  mkdir -p /tmp/frp && cd /tmp/frp
- wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/frp/frp.zip -O frp.zip
- unzip frp.zip
+ wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/frp/frpc_arm64
  chmod 755 frpc_arm64
  rm -f /usr/bin/frpc
  mv -f frpc_arm64 /usr/bin/frpc
@@ -25,8 +24,7 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
  
 # update xray
  mkdir -p /tmp/xray && cd /tmp/xray
- wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/xray/xray.zip -O xray.zip
- unzip xray.zip
+ wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/xray/xray_arm64
  chmod 755 xray_arm64
  rm -f /usr/bin/xray
  mv -f xray_arm64 /usr/bin/xray
@@ -34,8 +32,7 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
  
  # update v2ray
  mkdir -p /tmp/v2ray && cd /tmp/v2ray
- wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/v2ray/v2ray.zip -O v2ray.zip
- unzip v2ray.zip
+ wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/v2ray/v2ray_arm64
  chmod 755 v2ray_arm64
  rm -f /usr/bin/v2ray
  mv -f v2ray_arm64 /usr/bin/v2ray
