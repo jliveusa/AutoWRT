@@ -78,6 +78,11 @@ jobs:
         tag_name: frp
         files: |
           frp/frp.zip
+          ./release/frpc_arm64
+          ./release/frps_arm64
+          ./release/frpc_amd64
+          ./release/frps_amd64
+ 
           
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
