@@ -73,7 +73,8 @@ jobs:
       with:
         tag_name: v2ray
         files: |
-          v2ray-core/v2ray.zip
+          v2ray-core/release/v2ray_amd64
+          v2ray-core/release/v2ray_arm64
           
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
