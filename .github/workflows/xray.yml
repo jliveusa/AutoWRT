@@ -73,7 +73,8 @@ jobs:
       with:
         tag_name: xray
         files: |
-          Xray-core/xray.zip
+          Xray-core/release/xray_amd64
+          Xray-core/release/xray_arm64
           
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@main
