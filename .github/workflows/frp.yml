@@ -77,7 +77,6 @@ jobs:
       with:
         tag_name: frp
         files: |
-          frp/frp.zip
           frp/release/frpc_arm64
           frp/release/frps_arm64
           frp/release/frpc_amd64
