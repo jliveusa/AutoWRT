@@ -1,0 +1,80 @@
+#
+# Description: Build Project using GitHub Actions
+#
+
+name: Build Mosdns
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Back to Commit'
+        required: false
+        default: ''
+  schedule:
+    - cron: '0 10 * * *'
+    
+jobs:
+
+  build-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+
+      - name: Set up Go
+        uses: actions/setup-go@main
+        with:
+          go-version: 1.19
+          
+      - run: |
+          #cp -f `which go` /usr/bin/go
+          echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
+        
+      - uses: actions/cache@main
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: Set up Python
+        uses: actions/setup-python@main
+        with:
+          python-version: '3.8'
+
+      - name: Remove old Releases
+        uses: dev-drprasad/delete-tag-and-release@master
+        with:
+          delete_release: true
+          tag_name: mosdns
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+      - name: Build
+        run: |
+          git clone https://github.com/IrineSistiana/mosdns
+          cd mosdns
+          git checkout $COMMIT
+          python ./release.py
+        env:
+          CGO_ENABLED: '0'
+
+      - name: Publish
+        uses: softprops/action-gh-release@master
+        with:
+          tag_name: mosdns
+          files: |
+            mosdns/release/mosdns-linux-amd64.zip
+            mosdns/release/mosdns-linux-arm64.zip
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@main
+        with:
+          retain_days: 1
+          keep_minimum_runs: 1

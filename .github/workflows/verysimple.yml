@@ -1,0 +1,85 @@
+#
+# Description: Build Project using GitHub Actions
+#
+
+name: Build VerySimple
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      commit:
+        description: 'Back to Commit'
+        required: false
+        default: ''  
+  schedule:
+    - cron: '0 8 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+      
+    - name: Initialization environment
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: |
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo -E apt-get -qq update
+        sudo -E apt-get -qq -y install $(curl -fsSL https://raw.githubusercontent.com/jliveusa/AutoWRT/main/config/depends-ubuntu)
+        
+    - name: Set up Go 1.x
+      uses: actions/setup-go@main
+      with:
+        go-version: 1.18
+
+    - run: |
+        #cp -f `which go` /usr/bin/go
+        echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
+        
+    - name: Remove old Releases
+      uses: ClementTsang/delete-tag-and-release@main
+      with:
+        delete_release: true
+        tag_name: verysimple
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Clone source code & Build
+      run: |
+        git clone https://github.com/e1732a364fed/v2ray_simple
+        git checkout $COMMIT
+        cd v2ray_simple/cmd/verysimple
+        make linux_amd64 linux_arm64
+        mkdir -p release
+        mv verysimple_linux_arm64 ./release/verysimple_arm64
+        mv verysimple_linux_amd64 ./release/verysimple_amd64
+        upx --lzma --best ./release/verysimple_arm64
+        upx --lzma --best ./release/verysimple_amd64
+        echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+        zip -9j verysimple.zip ./release/*
+        
+    - name: Upload firmware directory
+      uses: actions/upload-artifact@main
+      with:
+        name: verysimple_${{ env.FILE_DATE }}
+        path: v2ray_simple/cmd/verysimple
+        
+    - name: Upload firmware to release
+      uses: softprops/action-gh-release@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: verysimple
+        files: |
+          v2ray_simple/cmd/verysimple/release/verysimple_amd64
+          v2ray_simple/cmd/verysimple/release/verysimple_arm64
+          
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 1
