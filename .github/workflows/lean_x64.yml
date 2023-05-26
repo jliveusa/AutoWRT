@@ -61,8 +61,8 @@ jobs:
       with:
         #keep_latest: 8
         #delete_tags: true
-        delete_release: true
-        tag_name: lean
+        #delete_release: true
+        #tag_name: lean
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
