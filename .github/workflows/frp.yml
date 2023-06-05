@@ -15,6 +15,12 @@ on:
   schedule:
    - cron: '0 9 * * *'
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -40,13 +46,13 @@ jobs:
         #cp -f `which go` /usr/bin/go
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
         
-    - name: Remove old Releases
-      uses: ClementTsang/delete-tag-and-release@main
-      with:
-        delete_release: true
-        tag_name: frp
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Remove old Releases
+#      uses: ClementTsang/delete-tag-and-release@main
+#      with:
+#        delete_release: true
+#        tag_name: frp
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Clone source code & Build
       run: |
