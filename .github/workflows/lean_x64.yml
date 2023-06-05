@@ -169,20 +169,20 @@ jobs:
         name: OpenWrt_packages_${{ env.DEVICE_NAME }}_${{ env.FILE_DATE }}
         path: ${{ env.PACKAGES }}
           
- #   - name: Generate release tag
-  #    id: tag
-   #   run: |
-    #    echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
-     #   touch release.txt
+    - name: Generate release tag
+      id: tag
+      run: |
+        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
+        touch release.txt
 
     - name: Upload firmware to release
       uses: softprops/action-gh-release@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        #tag_name: ${{ steps.tag.outputs.release_tag }}
+        #tag_name: ${{ env.release_tag }}
         tag_name: lean
-       # body_path: release.txt
+        body_path: release.txt
         files: |
           ${{ env.FIRMWARE }}/*
 
