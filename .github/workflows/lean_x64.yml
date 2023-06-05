@@ -112,9 +112,6 @@ jobs:
       uses: mxschmitt/action-tmate@master
       timeout-minutes: 30
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: Download package
       id: download
@@ -172,7 +169,7 @@ jobs:
     - name: Generate release tag
       id: tag
       run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
+        echo "RELEASE_TAG=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
         touch release.txt
 
     - name: Upload firmware to release
@@ -180,7 +177,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        #tag_name: ${{ env.release_tag }}
+        #tag_name: ${{ env.RELEASE_TAG }}
         tag_name: lean
         body_path: release.txt
         files: |
