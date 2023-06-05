@@ -56,15 +56,15 @@ jobs:
         sudo chown $USER:$GROUPS /workdir
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
         
-    - name: Remove old Releases
-      uses: ClementTsang/delete-tag-and-release@main
-      with:
+   # - name: Remove old Releases
+    #  uses: ClementTsang/delete-tag-and-release@main
+     # with:
         #keep_latest: 8
         #delete_tags: true
-        delete_release: true
-        tag_name: lean
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #  delete_release: true
+       # tag_name: lean
+      #env:
+       # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Clone source code
       working-directory: /workdir
@@ -163,11 +163,11 @@ jobs:
         name: OpenWrt_packages_${{ env.DEVICE_NAME }}_${{ env.FILE_DATE }}
         path: ${{ env.PACKAGES }}
           
-    - name: Generate release tag
-      id: tag
-      run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
-        touch release.txt
+ #   - name: Generate release tag
+  #    id: tag
+   #   run: |
+    #    echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
+     #   touch release.txt
 
     - name: Upload firmware to release
       uses: softprops/action-gh-release@master
@@ -176,7 +176,7 @@ jobs:
       with:
         #tag_name: ${{ steps.tag.outputs.release_tag }}
         tag_name: lean
-        body_path: release.txt
+       # body_path: release.txt
         files: |
           ${{ env.FIRMWARE }}/*
 
