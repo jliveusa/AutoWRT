@@ -2,7 +2,7 @@
 # Description: Build Project using GitHub Actions
 #
 
-name: Build Lean x64 OpenWRT
+name: Build Lean x64 Small OpenWRT
 
 on:
   repository_dispatch:
