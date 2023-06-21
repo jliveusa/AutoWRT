@@ -162,8 +162,8 @@ jobs:
         tag_name: caddy
         files: ./release-ready/*
 
-    - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 1
+  #  - name: Delete workflow runs
+  #    uses: Mattraks/delete-workflow-runs@main
+  #    with:
+  #      retain_days: 1
+  #      keep_minimum_runs: 1
