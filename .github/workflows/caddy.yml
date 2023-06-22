@@ -96,13 +96,13 @@ jobs:
         go-version: '1.20'
         check-latest: true
         
-#    - name: Remove old Releases
-#      uses: ClementTsang/delete-tag-and-release@main
-#      with:
-#        delete_release: true
-#        tag_name: caddy
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Remove old Releases
+      uses: ClementTsang/delete-tag-and-release@main
+      with:
+        delete_release: true
+        tag_name: caddy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Install xcaddy
       run: go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
