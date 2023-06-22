@@ -46,13 +46,13 @@ jobs:
         #cp -f `which go` /usr/bin/go
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
         
-   # - name: Remove old Releases
-    #  uses: ClementTsang/delete-tag-and-release@main
-     # with:
-      #  delete_release: true
-       # tag_name: xray
-      #env:
-       # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Remove old Releases
+      uses: ClementTsang/delete-tag-and-release@main
+      with:
+        delete_release: true
+        tag_name: xray
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Clone source code & Build
       run: |
