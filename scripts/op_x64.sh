@@ -17,7 +17,7 @@ rm -rf feeds/packages/net/mosdns
 rm -rf package/more/passwall-packages/chinadns-ng
 
 # Fit my network
-sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H%M")/g' package/lean/default-settings/files/zzz-default-settings
+# sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H%M")/g' package/lean/default-settings/files/zzz-default-settings
 # echo '0 3 * * 6 /etc/flyme.sh >>/tmp/flyme.sh.log 2>&1' >> /etc/crontabs/root
 # echo '/etc/ddns/' >> /etc/sysupgrade.conf
 # echo '/etc/ping/' >> /etc/sysupgrade.conf
