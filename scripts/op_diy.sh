@@ -26,11 +26,11 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/more/
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/more/lua-neturl
 svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/more/redsocks2
 
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-autotimeset package/more/luci-app-autotimeset
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-ddns-go package/more/luci-app-ddns-go
-#svn co https://github.com/kenzok8/small-package/trunk/luci-app-dockerman package/more/luci-app-dockerman
-svn co https://github.com/kenzok8/small-package/trunk/luci-app-fileassistant package/more/luci-app-fileassistant
-
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autotimeset package/more/luci-app-autotimeset
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddns-go package/more/luci-app-ddns-go
+svn co https://github.com/kiddin9/openwrt-packages/trunk/ddns-go package/more/ddns-go
+#svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/more/luci-app-dockerman
+svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-fileassistant package/more/luci-app-fileassistant
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-accesscontrol package/more/luci-app-accesscontrol
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autoreboot package/more/luci-app-autoreboot
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-filetransfer package/more/luci-app-filetransfer
