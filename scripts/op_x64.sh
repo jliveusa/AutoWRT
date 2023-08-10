@@ -15,6 +15,7 @@ rm -rf feeds/luci/applications/luci-app-dockerman
 # rm -rf feeds/luci/applications/luci-app-mosdns
 # rm -rf feeds/luci/applications/luci-app-unblockmusic
 # rm -rf feeds/packages/net/mosdns
+rm -rf feeds/packages/utils/dockerd
 # rm -rf package/more/passwall-packages/chinadns-ng
 
 # Fit my network
