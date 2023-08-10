@@ -11,11 +11,11 @@ sed -i 's/192.168.1.1/192.168.50.57/g' package/base-files/files/bin/config_gener
 
 
 # Remove unused ipk
-rm -rf feeds/luci/applications/luci-app-dockerman
+# rm -rf feeds/luci/applications/luci-app-dockerman
 # rm -rf feeds/luci/applications/luci-app-mosdns
 # rm -rf feeds/luci/applications/luci-app-unblockmusic
 # rm -rf feeds/packages/net/mosdns
-rm -rf feeds/packages/utils/dockerd
+# rm -rf feeds/packages/utils/dockerd
 # rm -rf package/more/passwall-packages/chinadns-ng
 
 # Fit my network
