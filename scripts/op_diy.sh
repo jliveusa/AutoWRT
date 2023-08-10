@@ -37,8 +37,8 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-cpulimit packa
 svn co https://github.com/kiddin9/openwrt-packages/trunk/cpulimit package/more/cpulimit
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddns-go package/more/luci-app-ddns-go
 svn co https://github.com/kiddin9/openwrt-packages/trunk/ddns-go package/more/ddns-go
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/more/luci-app-dockerman
-svn co https://github.com/kiddin9/openwrt-packages/trunk/dockerd package/more/dockerd
+# svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/more/luci-app-dockerman
+# svn co https://github.com/kiddin9/openwrt-packages/trunk/dockerd package/more/dockerd
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-fileassistant package/more/luci-app-fileassistant
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-accesscontrol package/more/luci-app-accesscontrol
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autoreboot package/more/luci-app-autoreboot
