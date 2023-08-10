@@ -18,7 +18,7 @@ git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/more
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
 
 # git clone https://github.com/QiuSimons/openwrt-mos package/more/openwrt-mos
-# git clone https://github.com/sbwml/luci-app-mosdns package/more/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5 package/more/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
 # svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/more/luci-app-amlogic
 
@@ -30,8 +30,8 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/autocore package/more/a
 svn co https://github.com/kiddin9/openwrt-packages/trunk/fullconenat package/more/fullconenat
 svn co https://github.com/kiddin9/openwrt-packages/trunk/fullconenat-nft package/more/fullconenat-nft
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-fullconenat package/more/luci-app-fullconenat
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-mosdns package/more/luci-app-mosdns
-svn co https://github.com/kiddin9/openwrt-packages/trunk/mosdns package/more/mosdns
+# svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-mosdns package/more/luci-app-mosdns
+# svn co https://github.com/kiddin9/openwrt-packages/trunk/mosdns package/more/mosdns
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autotimeset package/more/luci-app-autotimeset
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-cpulimit package/more/luci-app-cpulimit
 svn co https://github.com/kiddin9/openwrt-packages/trunk/cpulimit package/more/cpulimit
