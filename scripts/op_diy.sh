@@ -26,10 +26,11 @@ svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/more/
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/more/lua-neturl
 svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/more/redsocks2
 
+git clone https://github.com/chenmozhijin/turboacc -b package package/more/turboacc
+git clone https://github.com/fullcone-nat-nftables/nft-fullcone package/more/nft-fullcone
+svn co https://github.com/chenmozhijin/turboacc/trunk/luci-app-turboacc package/more/luci-app-turboacc
+
 svn co https://github.com/kiddin9/openwrt-packages/trunk/autocore package/more/autocore
-svn co https://github.com/kiddin9/openwrt-packages/trunk/libnftnl package/more/libnftnl
-svn co https://github.com/kiddin9/openwrt-packages/trunk/firewall4 package/more/firewall4
-svn co https://github.com/kiddin9/openwrt-packages/trunk/nftables package/more/nftables
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-mosdns package/more/luci-app-mosdns
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/mosdns package/more/mosdns
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autotimeset package/more/luci-app-autotimeset
