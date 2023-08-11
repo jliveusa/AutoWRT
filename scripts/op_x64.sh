@@ -21,6 +21,8 @@ rm -rf feeds/packages/net/v2ray-geodata
 rm -rf feeds/package/libs/libnftnl
 rm -rf feeds/package/network/config/firewall4
 rm -rf feeds/package/network/utils/nftables
+cp -f package/more/turboacc/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
+echo "# CONFIG_NF_CONNTRACK_CHAIN_EVENTS is not set" >> target/linux/generic/config-5.15
 
 # Fit my network
 # sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H%M")/g' package/lean/default-settings/files/zzz-default-settings
