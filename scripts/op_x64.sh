@@ -18,6 +18,9 @@ sed -i 's/192.168.1.1/192.168.50.57/g' package/base-files/files/bin/config_gener
 # rm -rf feeds/packages/utils/dockerd
 # rm -rf package/more/passwall-packages/chinadns-ng
 rm -rf feeds/packages/net/v2ray-geodata
+rm -rf feeds/package/libs/libnftnl
+rm -rf feeds/package/network/config/firewall4 
+rm -rf feeds/package/network/utils/nftables
 
 # Fit my network
 # sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H%M")/g' package/lean/default-settings/files/zzz-default-settings
