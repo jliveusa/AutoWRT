@@ -27,9 +27,9 @@ svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/more/lua-net
 svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/more/redsocks2
 
 svn co https://github.com/kiddin9/openwrt-packages/trunk/autocore package/more/autocore
-svn co https://github.com/kiddin9/openwrt-packages/trunk/fullconenat package/more/fullconenat
-svn co https://github.com/kiddin9/openwrt-packages/trunk/fullconenat-nft package/more/fullconenat-nft
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-fullconenat package/more/luci-app-fullconenat
+svn co https://github.com/kiddin9/openwrt-packages/trunk/libnftnl package/more/libnftnl
+svn co https://github.com/kiddin9/openwrt-packages/trunk/firewall4 package/more/firewall4
+svn co https://github.com/kiddin9/openwrt-packages/trunk/nftables package/more/nftables
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-mosdns package/more/luci-app-mosdns
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/mosdns package/more/mosdns
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autotimeset package/more/luci-app-autotimeset
