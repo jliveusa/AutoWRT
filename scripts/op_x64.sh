@@ -21,6 +21,12 @@ rm -rf feeds/packages/net/v2ray-geodata
 rm -rf package/libs/libnftnl
 rm -rf package/network/config/firewall4
 rm -rf package/network/utils/nftables
+mkdir -p package/network/config/firewall4
+mkdir -p package/libs/libnftnl
+mkdir -p package/network/utils/nftables
+cp -RT package/more/turboacc/firewall4-$(grep -o 'FIREWALL4_VERSION=.*' package/more/turboacc/version | cut -d '=' -f 2)/firewall4 package/network/config/firewall4
+cp -RT package/more/turboacc/libnftnl-$(grep -o 'LIBNFTNL_VERSION=.*' package/more/turboacc/version | cut -d '=' -f 2)/libnftnl package/libs/libnftnl
+cp -RT package/more/turboacc/nftables-$(grep -o 'NFTABLES_VERSION=.*' package/more/turboacc/version | cut -d '=' -f 2)/nftables package/network/utils/nftables
 cp -f package/more/turboacc/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
 echo "# CONFIG_NF_CONNTRACK_CHAIN_EVENTS is not set" >> target/linux/generic/config-5.15
 
