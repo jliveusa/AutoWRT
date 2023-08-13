@@ -18,9 +18,9 @@ sed -i 's/192.168.1.1/192.168.50.57/g' package/base-files/files/bin/config_gener
 # rm -rf feeds/packages/utils/dockerd
 # rm -rf package/more/passwall-packages/chinadns-ng
 rm -rf feeds/packages/net/v2ray-geodata
-rm -rf feeds/package/libs/libnftnl
-rm -rf feeds/package/network/config/firewall4
-rm -rf feeds/package/network/utils/nftables
+rm -rf package/libs/libnftnl
+rm -rf package/network/config/firewall4
+rm -rf package/network/utils/nftables
 cp -f package/more/turboacc/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch target/linux/generic/hack-5.15/952-add-net-conntrack-events-support-multiple-registrant.patch
 echo "# CONFIG_NF_CONNTRACK_CHAIN_EVENTS is not set" >> target/linux/generic/config-5.15
 
