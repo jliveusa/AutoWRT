@@ -21,6 +21,7 @@ rm -rf feeds/packages/net/v2ray-geodata
 rm -rf package/libs/libnftnl
 rm -rf package/network/config/firewall4
 rm -rf package/network/utils/nftables
+rm -rf package/more/passwall-packages/chinadns-ng
 mkdir -p package/network/config/firewall4
 mkdir -p package/libs/libnftnl
 mkdir -p package/network/utils/nftables
