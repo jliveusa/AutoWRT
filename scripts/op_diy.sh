@@ -13,6 +13,9 @@ sed -i '/telephony/d' feeds.conf.default
 # git clone https://github.com/kuoruan/luci-app-kcptun package/more/luci-app-kcptun
 # git clone https://github.com/kuoruan/luci-app-frpc package/more/luci-app-frpc
 
+git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
+git clone https://github.com/pexcn/openwrt-chinadns-ng package/more/chinadns-ng
+
 git clone -b packages https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-packages
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
