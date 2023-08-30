@@ -16,6 +16,8 @@ sed -i '/telephony/d' feeds.conf.default
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
 git clone https://github.com/pexcn/openwrt-chinadns-ng package/more/chinadns-ng
 
+git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
+
 git clone -b packages https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-packages
 git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
@@ -39,6 +41,7 @@ svn co https://github.com/kiddin9/openwrt-packages/trunk/autocore package/more/a
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-autotimeset package/more/luci-app-autotimeset
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-cpulimit package/more/luci-app-cpulimit
 svn co https://github.com/kiddin9/openwrt-packages/trunk/cpulimit package/more/cpulimit
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/more/dnsproxy
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddns-go package/more/luci-app-ddns-go
 svn co https://github.com/kiddin9/openwrt-packages/trunk/ddns-go package/more/ddns-go
 # svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-dockerman package/more/luci-app-dockerman
