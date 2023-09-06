@@ -14,7 +14,8 @@ sed -i '/telephony/d' feeds.conf.default
 # git clone https://github.com/kuoruan/luci-app-frpc package/more/luci-app-frpc
 
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
-git clone https://github.com/pexcn/openwrt-chinadns-ng package/more/chinadns-ng
+git clone https://github.com/izilzty/openwrt-chinadns-ng.git package/more/chinadns-ng
+# git clone https://github.com/pexcn/openwrt-chinadns-ng package/more/chinadns-ng
 
 git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
 
