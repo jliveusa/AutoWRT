@@ -19,8 +19,8 @@ git clone https://github.com/izilzty/openwrt-chinadns-ng.git package/more/chinad
 
 git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
 
-git clone -b packages https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-packages
-git clone -b luci https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-luci
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/more/passwall-packages
+git clone https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
 
 # git clone https://github.com/QiuSimons/openwrt-mos package/more/openwrt-mos
