@@ -24,7 +24,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git package/more/passwal
 git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
 
 # git clone https://github.com/QiuSimons/openwrt-mos package/more/openwrt-mos
-git clone https://github.com/jliveusa/luci-app-mosdns -b v5-new package/more/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns -b v5-119 package/more/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
 # svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/more/luci-app-amlogic
 
