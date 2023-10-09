@@ -18,6 +18,7 @@ git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
 svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/more/luci-app-ssr-plus
 svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/more/lua-neturl
 svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/more/redsocks2
+svn co https://github.com/fw876/helloworld/trunk/tcping package/more/tcping
 
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
 git clone https://github.com/izilzty/openwrt-chinadns-ng.git package/more/chinadns-ng
