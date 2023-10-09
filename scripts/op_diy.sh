@@ -21,7 +21,8 @@ git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-a
 
 git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/more/passwall-packages
 git clone https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-luci
-git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
+# git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
+git clone https://github.com/jliveusa/openwrt-passwall2.git -b v1.19 package/more/passwall2-luci
 
 # git clone https://github.com/QiuSimons/openwrt-mos package/more/openwrt-mos
 git clone https://github.com/jliveusa/luci-app-mosdns -b v5-119 package/more/mosdns
