@@ -22,6 +22,9 @@ svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/more/redsocks
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
 git clone https://github.com/izilzty/openwrt-chinadns-ng.git package/more/chinadns-ng
 
+git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
+svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/more/dnsproxy
+
 svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddns-go package/more/luci-app-ddns-go
 svn co https://github.com/kiddin9/openwrt-packages/trunk/ddns-go package/more/ddns-go
 
