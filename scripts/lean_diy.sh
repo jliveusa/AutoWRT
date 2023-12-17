@@ -19,6 +19,8 @@ svn co https://github.com/fw876/helloworld/branches/main/luci-app-ssr-plus packa
 svn co https://github.com/fw876/helloworld/branches/main/lua-neturl package/more/lua-neturl
 svn co https://github.com/fw876/helloworld/branches/main/redsocks2 package/more/redsocks2
 svn co https://github.com/fw876/helloworld/branches/main/ipt2socks package/more/ipt2socks
+svn co https://github.com/fw876/helloworld/branches/main/microsocks package/more/microsocks
+svn co https://github.com/fw876/helloworld/branches/main/tuic-client package/more/tuic-client
 svn co https://github.com/fw876/helloworld/branches/main/shadow-tls package/more/shadow-tls
 svn co https://github.com/fw876/helloworld/branches/main/gn package/more/gn
 
