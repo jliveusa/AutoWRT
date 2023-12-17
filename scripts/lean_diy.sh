@@ -20,7 +20,7 @@ svn co https://github.com/fw876/helloworld/branches/main/lua-neturl package/more
 svn co https://github.com/fw876/helloworld/branches/main/redsocks2 package/more/redsocks2
 
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
-git clone https://github.com/izilzty/openwrt-chinadns-ng.git package/more/chinadns-ng
+git clone https://github.com/jliveusa/openwrt-chinadns-ng.git package/more/chinadns-ng
 
 git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
 svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/more/dnsproxy
