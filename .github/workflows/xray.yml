@@ -37,11 +37,12 @@ jobs:
         sudo -E apt-get -qq update
         sudo -E apt-get -qq -y install $(curl -fsSL https://raw.githubusercontent.com/jliveusa/AutoWRT/main/config/depends-ubuntu)
         
-    - name: Set up Go 1.x
+    - name: Set up Go
       uses: actions/setup-go@main
       with:
         go-version: '1.21'
-
+        check-latest: true
+        
     - run: |
         #cp -f `which go` /usr/bin/go
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
