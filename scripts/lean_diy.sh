@@ -8,30 +8,45 @@
 sed -i '/telephony/d' feeds.conf.default
 
 # Add other package
-git clone https://github.com/xiaorouji/openwrt-passwall-packages.git package/more/passwall-packages
-git clone https://github.com/xiaorouji/openwrt-passwall.git package/more/passwall-luci
-git clone https://github.com/xiaorouji/openwrt-passwall2.git package/more/passwall2-luci
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/more/passwall-packages
+git clone https://github.com/xiaorouji/openwrt-passwall package/more/passwall-luci
+git clone https://github.com/xiaorouji/openwrt-passwall2 package/more/passwall2-luci
 
 git clone https://github.com/jliveusa/luci-app-mosdns -b v5-119 package/more/mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
 
-svn co https://github.com/v2rayA/v2raya-openwrt/trunk/luci-app-v2raya package/more/luci-app-v2raya
-svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2raya package/more/v2raya
-svn co https://github.com/v2rayA/v2raya-openwrt/trunk/v2fly-geodata package/more/v2fly-geodata
-
-svn co https://github.com/fw876/helloworld/trunk/luci-app-ssr-plus package/more/luci-app-ssr-plus
-svn co https://github.com/fw876/helloworld/trunk/lua-neturl package/more/lua-neturl
-svn co https://github.com/fw876/helloworld/trunk/redsocks2 package/more/redsocks2
-svn co https://github.com/fw876/helloworld/trunk/shadow-tls package/more/shadow-tls
-
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
-git clone https://github.com/jliveusa/openwrt-chinadns-ng.git package/more/chinadns-ng
-
+git clone https://github.com/jliveusa/openwrt-chinadns-ng package/more/chinadns-ng
 git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
-svn co https://github.com/kiddin9/openwrt-packages/trunk/dnsproxy package/more/dnsproxy
 
-svn co https://github.com/kiddin9/openwrt-packages/trunk/luci-app-ddns-go package/more/luci-app-ddns-go
-svn co https://github.com/kiddin9/openwrt-packages/trunk/ddns-go package/more/ddns-go
+# Merge_package
+function merge_package() {
+    # 参数1是分支名,参数2是库地址,参数3是所有文件下载到指定路径。
+    # 同一个仓库下载多个文件夹直接在后面跟文件名或路径，空格分开。
+    if [[ $# -lt 3 ]]; then
+        echo "Syntax error: [$#] [$*]" >&2
+        return 1
+    fi
+    trap 'rm -rf "$tmpdir"' EXIT
+    branch="$1" curl="$2" target_dir="$3" && shift 3
+    rootdir="$PWD"
+    localdir="$target_dir"
+    [ -d "$localdir" ] || mkdir -p "$localdir"
+    tmpdir="$(mktemp -d)" || exit 1
+    git clone -b "$branch" --depth 1 --filter=blob:none --sparse "$curl" "$tmpdir"
+    cd "$tmpdir"
+    git sparse-checkout init --cone
+    git sparse-checkout set "$@"
+    # 使用循环逐个移动文件夹
+    for folder in "$@"; do
+        mv -f "$folder" "$rootdir/$localdir"
+    done
+    cd "$rootdir"
+}
+
+merge_package master https://github.com/kiddin9/openwrt-packages package/more dnsproxy ddns-go luci-app-ddns-go
+merge_package master https://github.com/fw876/helloworld package/more redsocks2 shadow-tls lua-neturl luci-app-ssr-plus
+merge_package master https://github.com/v2rayA/v2raya-openwrt package/more v2raya v2fly-geodata luci-app-v2raya
 
 # Set permission
 chmod -R 755 package/more/
