@@ -12,7 +12,7 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/more/pa
 git clone https://github.com/xiaorouji/openwrt-passwall package/more/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/more/passwall2-luci
 
-git clone https://github.com/jliveusa/luci-app-mosdns -b v5-119 package/more/mosdns
+git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
 
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
