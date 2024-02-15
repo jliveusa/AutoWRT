@@ -17,7 +17,7 @@ git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
 
 git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
 git clone https://github.com/jliveusa/openwrt-chinadns-ng package/more/chinadns-ng
-git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
+# git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
 
 # Merge_package
 function merge_package() {
