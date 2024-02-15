@@ -108,14 +108,16 @@ jobs:
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
                     
 #    - name: Remove old Releases and Tag
-#      uses: ClementTsang/delete-tag-and-release@main
+#      uses: dev-drprasad/delete-older-releases@master
 #      with:
-#        #delete_tags: true
-#        delete_release: true
-#        tag_name: lean_small
+#        #repo: <owner>/<repoName> 
+#        keep_latest: 2
+#        keep_min_download_counts: 1
+#        delete_expired_data: 7   
+#        delete_tag_pattern: lean_small
 #      env:
 #        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+    
     - name: Clone source code
       working-directory: /workdir
       run: |
