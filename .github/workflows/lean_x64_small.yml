@@ -54,7 +54,7 @@ jobs:
       uses: Mattraks/delete-workflow-runs@main
       with:
         retain_days: 1
-        keep_minimum_runs: 3
+        keep_minimum_runs: 2
         
 #    - name: Remove old Releases
 #      uses: ClementTsang/delete-tag-and-release@main
