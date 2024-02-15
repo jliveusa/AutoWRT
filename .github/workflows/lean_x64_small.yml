@@ -50,23 +50,6 @@ jobs:
         df -hT
         echo "=============================================================================="
         
-    - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 2
-        token: ${{ GITHUB_TOKEN }}
-          
-#    - name: Remove old Releases
-#      uses: ClementTsang/delete-tag-and-release@main
-#      with:
-#        #keep_latest: 8
-#        #delete_tags: true
-#        delete_release: true
-#        tag_name: lean_small
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     - name: "Optimize Disk Space"
       uses: "hugoalh/disk-space-optimizer-ghaction@main"
       with:
@@ -228,5 +211,20 @@ jobs:
         body_path: release.txt
         files: |
           ${{ env.FIRMWARE }}/*
-
-
+          
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 2
+        token: ${{ secrets.GITHUB_TOKEN }}
+          
+#    - name: Remove old Releases
+#      uses: ClementTsang/delete-tag-and-release@main
+#      with:
+#        #keep_latest: 8
+#        #delete_tags: true
+#        delete_release: true
+#        tag_name: lean_small
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
