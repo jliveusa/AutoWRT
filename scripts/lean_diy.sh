@@ -44,7 +44,8 @@ function merge_package() {
     cd "$rootdir"
 }
 
-merge_package master https://github.com/kiddin9/openwrt-packages package/more dnsproxy ddns-go luci-app-ddns-go
+# merge_package master https://github.com/kiddin9/openwrt-packages package/more dnsproxy ddns-go luci-app-ddns-go
+merge_package master https://github.com/kiddin9/openwrt-packages package/more ddns-go luci-app-ddns-go
 merge_package master https://github.com/fw876/helloworld package/more redsocks2 shadow-tls lua-neturl luci-app-ssr-plus
 merge_package master https://github.com/v2rayA/v2raya-openwrt package/more v2raya v2fly-geodata luci-app-v2raya
 
