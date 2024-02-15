@@ -25,7 +25,7 @@ on:
           - disabled_inactivity
           - disabled_manually
       delete_run_by_conclusion_pattern:
-        description: 'Remove runs based on conclusion: action_required, cancelled, failure, skipped, success'
+        description: 'Remove runs based on conclusion: action_required, cancelled, failure, skipped, success, completed'
         required: true
         default: "ALL"
         type: choice
@@ -37,6 +37,7 @@ on:
           - failure
           - skipped
           - success
+          - completed
       dry_run:
         description: 'Logs simulated changes, no deletions are performed'
         required: false
