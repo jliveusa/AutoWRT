@@ -49,6 +49,22 @@ jobs:
         echo "=============================================================================="
         df -hT
         echo "=============================================================================="
+        
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 3
+        
+#    - name: Remove old Releases
+#      uses: ClementTsang/delete-tag-and-release@main
+#      with:
+#        #keep_latest: 8
+#        #delete_tags: true
+#        delete_release: true
+#        tag_name: lean_small
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: "Optimize Disk Space"
       uses: "hugoalh/disk-space-optimizer-ghaction@main"
@@ -106,23 +122,7 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
-        
-    - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 3
-        
-#    - name: Remove old Releases
-#      uses: ClementTsang/delete-tag-and-release@main
-#      with:
-#        #keep_latest: 8
-#        #delete_tags: true
-#        delete_release: true
-#        tag_name: lean_small
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+              
     - name: Clone source code
       working-directory: /workdir
       run: |
