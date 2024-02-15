@@ -106,7 +106,16 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
-              
+                    
+#    - name: Remove old Releases and Tag
+#      uses: ClementTsang/delete-tag-and-release@main
+#      with:
+#        #delete_tags: true
+#        delete_release: true
+#        tag_name: lean_small
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Clone source code
       working-directory: /workdir
       run: |
@@ -211,12 +220,3 @@ jobs:
         body_path: release.txt
         files: |
           ${{ env.FIRMWARE }}/*
-                    
-#    - name: Remove old Releases and Tag
-#      uses: ClementTsang/delete-tag-and-release@main
-#      with:
-#        #delete_tags: true
-#        delete_release: true
-#        tag_name: lean_small
-#      env:
-#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
