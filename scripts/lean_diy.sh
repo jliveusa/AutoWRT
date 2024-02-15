@@ -11,13 +11,8 @@ sed -i '/telephony/d' feeds.conf.default
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/more/passwall-packages
 git clone https://github.com/xiaorouji/openwrt-passwall package/more/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/more/passwall2-luci
-
 git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
 git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
-
-git clone https://github.com/izilzty/luci-app-chinadns-ng package/more/luci-app-chinadns-ng
-git clone https://github.com/jliveusa/openwrt-chinadns-ng package/more/chinadns-ng
-# git clone https://github.com/NagaseKouichi/luci-app-dnsproxy package/more/luci-app-dnsproxy
 
 # Merge_package
 function merge_package() {
@@ -44,10 +39,8 @@ function merge_package() {
     cd "$rootdir"
 }
 
-# merge_package master https://github.com/kiddin9/openwrt-packages package/more dnsproxy ddns-go luci-app-ddns-go
 merge_package master https://github.com/kiddin9/openwrt-packages package/more ddns-go luci-app-ddns-go
 merge_package master https://github.com/fw876/helloworld package/more redsocks2 shadow-tls lua-neturl luci-app-ssr-plus
-merge_package master https://github.com/v2rayA/v2raya-openwrt package/more v2raya v2fly-geodata luci-app-v2raya
 
 # Set permission
 chmod -R 755 package/more/
