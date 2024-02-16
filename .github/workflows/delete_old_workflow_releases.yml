@@ -27,7 +27,10 @@ jobs:
     - name: Delete Old Releases
       uses: dev-drprasad/delete-older-releases@master
       with:
-        keep_latest: 1
-        delete_tags: true
+#        #repo: <owner>/<repoName> 
+         keep_latest: 2
+         keep_min_download_counts: 1
+         delete_expired_data: 7   
+#        delete_tag_pattern: lean_small
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
