@@ -13,6 +13,8 @@ sed -i 's/192.168.1.1/192.168.50.57/g' package/base-files/files/bin/config_gener
 # Remove unused ipk
 rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/packages/net/mosdns
+rm -rf feeds/luci/applications/luci-app-frpc
+rm -rf feeds/packages/net/frp
 rm -rf feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 
