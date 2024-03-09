@@ -87,10 +87,3 @@ jobs:
           frp/release/frps_arm64
           frp/release/frpc_amd64
           frp/release/frps_amd64
- 
-          
-    - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 1
