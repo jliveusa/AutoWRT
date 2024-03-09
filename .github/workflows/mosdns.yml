@@ -69,12 +69,6 @@ jobs:
           files: |
             mosdns/release/mosdns-linux-amd64.zip
             mosdns/release/mosdns-linux-arm64.zip
-
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Delete workflow runs
-        uses: Mattraks/delete-workflow-runs@main
-        with:
-          retain_days: 1
-          keep_minimum_runs: 1
