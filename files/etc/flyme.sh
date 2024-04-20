@@ -1,19 +1,20 @@
 #!/bin/bash
 PATH="/usr/sbin:/usr/bin:/sbin:/bin"
 
-# update frp
-# mkdir -p /tmp/frp && cd /tmp/frp
+# update frpc
+# mkdir -p /tmp/frpc && cd /tmp/frpc
 # wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/frp/frpc_amd64 -O frpc
 # chmod 755 frpc
 # rm -f /usr/bin/frpc
 # mv -f frpc /usr/bin/frpc
-# cd ~ && rm -rf /tmp/frp
+# cd ~ && rm -rf /tmp/frpc
 # /etc/init.d/frp restart
  
 # update dnsmasq
-# cd /tmp
-# wget -T 0 --no-check-certificate https://github.com/felixonmars/dnsmasq-china-list/blob/master/accelerated-domains.china.conf -O accelerated-domains.china.conf.tmp
-# mv -f /tmp/accelerated-domains.china.conf.tmp /etc/dnsmasq.d/accelerated-domains.china.conf
+# mkdir -p /tmp/dnsmasq && cd /tmp/dnsmasq
+# wget -c -T 0 --no-check-certificate https://github.com/felixonmars/dnsmasq-china-list/blob/master/accelerated-domains.china.conf -O accelerated-domains.china.conf
+# rm -f /etc/dnsmasq.d/accelerated-domains.china.conf
+# mv -f /tmp/accelerated-domains.china.conf /etc/dnsmasq.d/accelerated-domains.china.conf
 # /etc/init.d/dnsmasq restart
 
 # update mosdns
