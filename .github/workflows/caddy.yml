@@ -119,7 +119,7 @@ jobs:
           --with github.com/caddy-dns/cloudflare \
           --with github.com/caddy-dns/dnspod \
           --with github.com/caddy-dns/duckdns \
-          --with github.com/caddyserver/forwardproxy@caddy2=github.com/sagernet/forwardproxy@latest \
+          --with github.com/caddyserver/forwardproxy=github.com/klzgrad/forwardproxy@naive \
           --with github.com/imgk/caddy-trojan \
           --with github.com/mholt/caddy-webdav \
           --with github.com/mholt/caddy-events-exec \
