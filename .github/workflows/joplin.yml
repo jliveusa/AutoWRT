@@ -12,22 +12,15 @@ on:
         default: 'false'
   schedule:
     - cron: '0 19 * * *'
-    
-jobs:
-  pre_job:
-    if: github.repository == 'laurent22/joplin'
-    runs-on: ubuntu-latest
-    outputs:
-      should_skip: ${{ steps.skip_check.outputs.should_skip }}
-    steps:
-      - id: skip_check
-        uses: fkirc/skip-duplicate-actions@v5
-        with:
-          concurrent_skipping: 'same_content_newer'
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write   
+  
+jobs:
   AssembleRelease:
-    needs: pre_job
-    if: github.repository == 'laurent22/joplin' && needs.pre_job.outputs.should_skip != 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Install Linux dependencies
