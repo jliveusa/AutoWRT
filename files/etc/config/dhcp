@@ -1,0 +1,74 @@
+
+config dnsmasq
+	option domainneeded '1'
+	option localise_queries '1'
+	option rebind_protection '1'
+	option rebind_localhost '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option cachesize '8192'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	option nonwildcard '1'
+	option localservice '1'
+	option ednspacket_max '1232'
+	option localuse '1'
+	option quietdhcp '1'
+	option allservers '1'
+	option dnsforwardmax '1024'
+	option noresolv '0'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option start '100'
+	option limit '150'
+	option leasetime '12h'
+	option dhcpv4 'server'
+	option dhcpv6 'server'
+	option ra 'server'
+	option ra_slaac '1'
+	list ra_flags 'managed-config'
+	list ra_flags 'other-config'
+	option ra_management '1'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+
+config odhcpd 'odhcpd'
+	option maindhcp '0'
+	option leasefile '/tmp/hosts/odhcpd'
+	option leasetrigger '/usr/sbin/odhcpd-update'
+	option loglevel '4'
+
+config srvhost
+	option srv '_vlmcs._tcp'
+	option target 'OpenWrt'
+	option port '1688'
+	option class '0'
+	option weight '100'
+
+config host
+	option dns '1'
+	option ip '192.168.50.200'
+	option leasetime 'infinite'
+	option name '5600G-Win10'
+	option mac '00:15:5d:01:06:00'
+
+config host
+	option dns '1'
+	option ip '192.168.50.201'
+	option leasetime 'infinite'
+	option name '5600G-Debian'
+	option mac '00:15:5d:01:06:06'
+
+config host
+	option name 'Xiaomi-12X'
+	option dns '1'
+	option leasetime 'infinite'
+	option mac '50:98:39:26:2d:14'
+	option ip '192.168.50.202'
+

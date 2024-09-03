@@ -1,0 +1,32 @@
+dnsconf:
+    - ipv4:
+        enable: true
+        gettype: netInterface
+        url: https://myip4.ipip.net, https://ddns.oray.com/checkip, https://ip.3322.net
+        netinterface: pppoe-wan
+        cmd: ""
+        domains:
+            - 220507.xyz
+      ipv6:
+        enable: true
+        gettype: netInterface
+        url: https://myip6.ipip.net, https://speed.neu6.edu.cn/getIP.php, https://v6.ident.me
+        netinterface: pppoe-wan
+        cmd: ""
+        ipv6reg: ""
+        domains:
+            - 220507.xyz
+      dns:
+        name: cloudflare
+        id: ""
+        secret: 2tTJo1AT-tDP_kuEWrJ-rJUjRISGevfw5hdVehdI
+      ttl: ""
+user:
+    username: ""
+    password: ""
+webhook:
+    webhookurl: ""
+    webhookrequestbody: ""
+    webhookheaders: ""
+notallowwanaccess: true
+lang: zh
