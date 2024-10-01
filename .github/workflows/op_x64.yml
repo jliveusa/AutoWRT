@@ -25,7 +25,7 @@ on:
         required: false
         default: ''
   schedule:
-    - cron: '0 18 * * *'
+    - cron: '0 18 * * 1'
     
 env:
   FEEDS_CONF: feeds.conf.default
