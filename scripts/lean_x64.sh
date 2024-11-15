@@ -16,10 +16,10 @@ rm -rf feeds/packages/net/mosdns
 rm -rf feeds/luci/applications/luci-app-frpc
 rm -rf feeds/packages/net/frp
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
 # Fit my network
-sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H%M")/g' package/lean/default-settings/files/zzz-default-settings
+sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H:%M")/g' package/lean/default-settings/files/zzz-default-settings
 # echo '0 3 * * 6 /etc/flyme.sh >>/tmp/flyme.sh.log 2>&1' >> /etc/crontabs/root
 # echo '/etc/ddns/' >> /etc/sysupgrade.conf
 # echo '/etc/ping/' >> /etc/sysupgrade.conf
