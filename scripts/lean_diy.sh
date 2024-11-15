@@ -39,7 +39,7 @@ function merge_package() {
     cd "$rootdir"
 }
 
-merge_package master https://github.com/kiddin9/openwrt-packages package/more ddns-go luci-app-ddns-go frp luci-app-frpc
+merge_package master https://github.com/kiddin9/kwrt-packages package/more ddns-go luci-app-ddns-go frp luci-app-frpc
 merge_package master https://github.com/fw876/helloworld package/more redsocks2 shadow-tls lua-neturl luci-app-ssr-plus
 
 # Set permission
