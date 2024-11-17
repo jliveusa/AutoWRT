@@ -114,17 +114,18 @@ jobs:
         export GOOS=${{ matrix.config.GOOS }} 
         ~/go/bin/xcaddy build master \
           --with github.com/mholt/caddy-l4 \
-          --with github.com/mholt/caddy-dynamicdns \
           --with github.com/caddy-dns/alidns \
           --with github.com/caddy-dns/cloudflare \
           --with github.com/caddy-dns/dnspod \
           --with github.com/caddy-dns/duckdns \
+          --with github.com/mholt/caddy-dynamicdns \
+          --with github.com/mholt/caddy-events-exec \
+          --with github.com/WeidiDeng/caddy-cloudflare-ip \
+          --with github.com/xcaddyplugins/caddy-trusted-cloudfront \
           --with github.com/caddyserver/forwardproxy=github.com/klzgrad/forwardproxy@naive \
           --with github.com/imgk/caddy-trojan \
           --with github.com/mholt/caddy-webdav \
-          --with github.com/mholt/caddy-events-exec \
           --with github.com/aksdb/caddy-cgi/v2 \
-          --with github.com/WeidiDeng/caddy-cloudflare-ip \
           --output ./release-tmp/caddy
           
     - name: Rename for Windows 
