@@ -16,8 +16,8 @@ on:
         description: 'Back to Commit'
         required: false
         default: ''
-  schedule:
-    - cron: '0 17 * * 1'
+  #schedule:
+  #  - cron: '0 17 * * 1'
     
 env:
   REPO_URL: https://github.com/openwrt/openwrt
