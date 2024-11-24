@@ -7,19 +7,32 @@
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.50.57/g' package/base-files/files/bin/config_generate
 
-# Modify ipk
-
-
 # Remove unused ipk
 rm -rf feeds/luci/applications/luci-app-mosdns
 rm -rf feeds/packages/net/mosdns
-rm -rf feeds/luci/applications/luci-app-frpc
-rm -rf feeds/packages/net/frp
 rm -rf feeds/packages/lang/golang
+
+# Modify ipk
+mkdir ./package/more/
+git clone https://github.com/sirpdboy/luci-app-ddns-go package/more/ddns-go
+git clone https://github.com/xiaorouji/openwrt-passwall-packages package/more/passwall-packages
+git clone https://github.com/xiaorouji/openwrt-passwall package/more/passwall-luci
+git clone https://github.com/xiaorouji/openwrt-passwall2 package/more/passwall2-luci
+git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
+git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x feeds/packages/lang/golang
 
-# Fit my network
-sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H:%M")/g' package/lean/default-settings/files/zzz-default-settings
+git clone https://github.com/fw876/helloworld
+mv ./helloworld/redsocks2 ./package/more/
+mv ./helloworld/shadow-tls ./package/more/
+mv ./helloworld/lua-neturl ./package/more/
+mv ./helloworld/luci-app-ssr-plus ./package/more/
+
+# Set permission
+chmod -R 755 package/more/
+
+# Fit openwrt
+# sed -i 's/OpenWrt/OpenWrt Build @ $(date +"%Y.%m.%d-%H:%M")/g' package/lean/default-settings/files/zzz-default-settings
 # echo '0 3 * * 6 /etc/flyme.sh >>/tmp/flyme.sh.log 2>&1' >> /etc/crontabs/root
 # echo '/etc/ddns/' >> /etc/sysupgrade.conf
 # echo '/etc/ping/' >> /etc/sysupgrade.conf
