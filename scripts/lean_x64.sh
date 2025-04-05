@@ -19,6 +19,7 @@ rm -rf feeds/packages/lang/golang
 
 # Modify ipk
 mkdir ./package/more/
+git clone https://github.com/destan19/OpenAppFilter package/more/OpenAppFilter    
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/more/ddns-go
 git clone https://github.com/xiaorouji/openwrt-passwall-packages package/more/passwall-packages
 git clone https://github.com/xiaorouji/openwrt-passwall package/more/passwall-luci
