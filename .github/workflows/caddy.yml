@@ -72,7 +72,7 @@ jobs:
         ~/go/bin/xcaddy build \
           --with github.com/mholt/caddy-l4 \
           --with github.com/caddy-dns/cloudflare \
-          --with github.com/caddy-dns/dnspod \
+        # --with github.com/caddy-dns/dnspod \
           --with github.com/caddy-dns/duckdns \
           --with github.com/mholt/caddy-dynamicdns \
           --with github.com/mholt/caddy-events-exec \
