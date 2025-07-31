@@ -3,9 +3,9 @@ config defaults
 	option input 'ACCEPT'
 	option output 'ACCEPT'
 	option forward 'REJECT'
-	option flow_offloading_hw '1'
 	option fullcone '2'
 	option flow_offloading '1'
+	option flow_offloading_hw '0'
 
 config zone
 	option name 'lan'
@@ -136,17 +136,6 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
-config include 'miniupnpd'
-	option type 'script'
-	option path '/usr/share/miniupnpd/firewall.include'
-	option family 'any'
-	option reload '1'
-
-config include 'mia'
-	option type 'script'
-	option path '/etc/mia.include'
-	option reload '1'
-
 config rule 'kms'
 	option name 'kms'
 	option target 'ACCEPT'
@@ -213,6 +202,17 @@ config include 'shadowsocksr'
 	option path '/var/etc/shadowsocksr.include'
 	option reload '1'
 
+config include 'miniupnpd'
+	option type 'script'
+	option path '/usr/share/miniupnpd/firewall.include'
+	option family 'any'
+	option reload '1'
+
+config include 'mia'
+	option type 'script'
+	option path '/etc/mia.include'
+	option reload '1'
+
 config include 'passwall2'
 	option type 'script'
 	option path '/var/etc/passwall2.include'
@@ -222,4 +222,24 @@ config include 'passwall2_server'
 	option type 'script'
 	option path '/var/etc/passwall2_server.include'
 	option reload '1'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'http'
+	option src 'wan'
+	option src_dport '2095'
+	option dest_ip '192.168.50.57'
+	option dest_port '80'
+	option enabled '0'
+
+config redirect
+	option dest 'lan'
+	option target 'DNAT'
+	option name 'https'
+	option src 'wan'
+	option src_dport '2096'
+	option dest_ip '192.168.50.57'
+	option dest_port '443'
+	option enabled '0'
 
