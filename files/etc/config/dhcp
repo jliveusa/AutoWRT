@@ -12,14 +12,12 @@ config dnsmasq
 	option readethers '1'
 	option leasefile '/tmp/dhcp.leases'
 	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
-	option nonwildcard '1'
 	option localservice '1'
 	option ednspacket_max '1232'
 	option localuse '1'
 	option quietdhcp '1'
 	option allservers '1'
 	option dnsforwardmax '1024'
-	option noresolv '0'
 
 config dhcp 'lan'
 	option interface 'lan'
@@ -55,20 +53,13 @@ config host
 	option dns '1'
 	option ip '192.168.50.200'
 	option leasetime 'infinite'
-	option name '5600G-Win10'
-	option mac '00:15:5d:01:06:00'
+	option name '5700G-Win11'
+	list mac '00:15:5D:01:06:00'
 
 config host
 	option dns '1'
 	option ip '192.168.50.201'
 	option leasetime 'infinite'
-	option name '5600G-Debian'
-	option mac '00:15:5d:01:06:06'
-
-config host
-	option name 'Xiaomi-12X'
-	option dns '1'
-	option leasetime 'infinite'
-	option mac '50:98:39:26:2d:14'
-	option ip '192.168.50.202'
+	option name '5700G-Debian'
+	list mac '00:15:5D:01:06:06'
 
