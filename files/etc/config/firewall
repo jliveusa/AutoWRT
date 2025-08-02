@@ -131,7 +131,6 @@ config rule
 	option proto 'udp'
 	option family 'ipv4'
 	option target 'REJECT'
-	option enabled '0'
 
 config include
 	option path '/etc/firewall.user'
@@ -149,6 +148,7 @@ config rule
 	option proto 'tcp udp'
 	option dest_port '2095'
 	option name 'http'
+	option enabled '0'
 
 config rule
 	option target 'ACCEPT'
@@ -156,6 +156,7 @@ config rule
 	option proto 'tcp udp'
 	option dest_port '2096'
 	option name 'https'
+	option enabled '0'
 
 config redirect
 	option target 'DNAT'
@@ -163,19 +164,9 @@ config redirect
 	option dest 'lan'
 	option proto 'tcp udp'
 	option dest_ip '192.168.50.200'
-	option name 'AIO-RDP'
 	option src_dport '9001'
 	option dest_port '9001'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '8008'
-	option dest_ip '192.168.50.200'
-	option dest_port '8008'
-	option name 'chfs'
+	option name 'R5700G-RDP'
 
 config redirect
 	option target 'DNAT'
@@ -222,24 +213,3 @@ config include 'passwall2_server'
 	option type 'script'
 	option path '/var/etc/passwall2_server.include'
 	option reload '1'
-
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option name 'http'
-	option src 'wan'
-	option src_dport '2095'
-	option dest_ip '192.168.50.57'
-	option dest_port '80'
-	option enabled '0'
-
-config redirect
-	option dest 'lan'
-	option target 'DNAT'
-	option name 'https'
-	option src 'wan'
-	option src_dport '2096'
-	option dest_ip '192.168.50.57'
-	option dest_port '443'
-	option enabled '0'
-
