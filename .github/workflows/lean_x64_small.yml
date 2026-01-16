@@ -106,6 +106,9 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
+        git clone https://gitcode.com/gh_mirrors/up/update-golang
+        cd update-golang
+        sudo ./update-golang.sh
                     
 #    - name: Remove old Releases and Tag
 #      uses: dev-drprasad/delete-older-releases@master
