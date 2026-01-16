@@ -14,8 +14,6 @@ rm -rf feeds/luci/applications/luci-app-ddns-go
 rm -rf feeds/packages/net/ddns-go
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-passwall2
-rm -rf feeds/packages/net/v2ray-geodata
-rm -rf feeds/packages/lang/golang
 
 # Modify ipk
 mkdir ./package/more/
@@ -25,8 +23,6 @@ git clone https://github.com/xiaorouji/openwrt-passwall-packages package/more/pa
 git clone https://github.com/xiaorouji/openwrt-passwall package/more/passwall-luci
 git clone https://github.com/xiaorouji/openwrt-passwall2 package/more/passwall2-luci
 git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
-git clone https://github.com/sbwml/v2ray-geodata package/more/v2ray-geodata
-git clone https://github.com/sbwml/packages_lang_golang -b 24.x feeds/packages/lang/golang
 
 git clone https://github.com/fw876/helloworld
 mv ./helloworld/redsocks2 ./package/more/
