@@ -25,6 +25,8 @@ git clone https://github.com/xiaorouji/openwrt-passwall2 package/more/passwall2-
 git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
 
 git clone https://github.com/fw876/helloworld
+mv ./helloworld/dns2socks-rust ./package/more/
+mv ./helloworld/v2ray-core ./package/more/
 mv ./helloworld/redsocks2 ./package/more/
 mv ./helloworld/shadow-tls ./package/more/
 mv ./helloworld/lua-neturl ./package/more/
