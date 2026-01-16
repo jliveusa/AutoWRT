@@ -18,21 +18,24 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
 # /etc/init.d/dnsmasq restart
 
 # update mosdns
- mkdir -p /tmp/mosdns && cd /tmp/mosdns
- wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/mosdns/mosdns-linux-amd64.zip -O mosdns.zip
- unzip mosdns.zip
- chmod 755 mosdns
- rm -f /usr/bin/mosdns
- mv -f mosdns /usr/bin/mosdns
- cd ~ && rm -rf /tmp/mosdns
- /etc/init.d/mosdns restart
+# mkdir -p /tmp/mosdns && cd /tmp/mosdns
+# wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/mosdns/mosdns-linux-amd64.zip -O mosdns.zip
+# unzip mosdns.zip
+# chmod 755 mosdns
+# rm -f /usr/bin/mosdns
+# mv -f mosdns /usr/bin/mosdns
+# cd ~ && rm -rf /tmp/mosdns
+# /etc/init.d/mosdns restart
  
 # update xray
  mkdir -p /tmp/xray && cd /tmp/xray
- wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/xray/xray_amd64 -O xray
- chmod 755 xray
- rm -f /usr/bin/xray
- mv -f xray /usr/bin/xray
+ wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/xray/xray_amd64
+  if [ -f "/tmp/xray/xray_amd64" ]; then
+     chmod 755 xray_amd64 && mv -f xray_amd64 /usr/bin/xray
+     echo "succeed" 
+else
+     echo "failed"
+ fi
  cd ~ && rm -rf /tmp/xray
 
 # update v2ray
@@ -42,7 +45,7 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
 # rm -f /usr/bin/v2ray
 # mv -f v2ray /usr/bin/v2ray
 # cd ~ && rm -rf /tmp/v2ray
- 
+
 # /etc/init.d/passwall restart
 /etc/init.d/passwall2 restart
 # /etc/init.d/shadowsocksr restart
