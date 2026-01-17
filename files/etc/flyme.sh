@@ -5,7 +5,7 @@ PATH="/usr/sbin:/usr/bin:/sbin:/bin"
  mkdir -p /tmp/xray && cd /tmp/xray
  wget -c -T 0 --no-check-certificate https://github.com/jliveusa/AutoWRT/releases/download/xray/xray_amd64 -O xray_amd64
   if [ -f "/tmp/xray/xray_amd64" ]; then
-     chmod 755 xray_amd64 && rm -f /usr/bin/xray && mv -f xray_amd64 /usr/bin/xray
+     chmod 755 xray_amd64 && mv -f xray_amd64 /usr/bin/xray
      echo "succeed" 
 else
      echo "failed"
