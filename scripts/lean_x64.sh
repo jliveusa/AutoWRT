@@ -19,9 +19,9 @@ rm -rf feeds/luci/applications/luci-app-passwall2
 mkdir ./package/more/
 git clone https://github.com/destan19/OpenAppFilter package/more/OpenAppFilter    
 git clone https://github.com/sirpdboy/luci-app-ddns-go package/more/ddns-go
-git clone https://github.com/xiaorouji/openwrt-passwall-packages package/more/passwall-packages
-git clone https://github.com/xiaorouji/openwrt-passwall package/more/passwall-luci
-git clone https://github.com/xiaorouji/openwrt-passwall2 package/more/passwall2-luci
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/more/passwall-packages
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/more/passwall-luci
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/more/passwall2-luci
 git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
 
 git clone https://github.com/fw876/helloworld
