@@ -32,11 +32,63 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
+    
     steps:
+    - name: Before freeing up disk space
+      run: |
+        echo "Before freeing up disk space"
+        echo "=============================================================================="
+        df -hT
+        echo "=============================================================================="
+        
+    - name: "Optimize Disk Space"
+      uses: "hugoalh/disk-space-optimizer-ghaction@main"
+      with:
+        operate_sudo: "True"
+        general_include: ".+"
+        general_exclude: |-
+          ^GCC$
+          ^G\+\+$
+          Clang
+          LLVM
+        docker_include: ".+"
+        docker_prune: "True"
+        docker_clean: "True"
+        apt_prune: "True"
+        apt_clean: "True"
+        homebrew_prune: "True"
+        homebrew_clean: "True"
+        npm_prune: "True"
+        npm_clean: "True"
+        os_swap: "True"
+
+#    - name: Freeing up disk space
+#      uses: easimon/maximize-build-space@master
+#      with: 
+#        root-reserve-mb: 2048
+#       swap-size-mb: 1
+#        remove-dotnet: 'true'
+#        remove-android: 'true'
+#        remove-haskell: 'true'
+#        remove-codeql: 'true'
+#        remove-docker-images: 'true'
+
+    - name: Free up disk space complete
+      run: |
+        echo "Free up disk space complete"
+        echo "=============================================================================="
+        df -hT
+        echo "=============================================================================="
+        
     - name: Checkout
       uses: actions/checkout@main
 
@@ -44,28 +96,28 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        # docker rmi `docker images -q`
-        # sudo -E apt-get -qq -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* android*
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
         sudo -E apt-get -qq -y install $(curl -fsSL https://raw.githubusercontent.com/jliveusa/AutoWRT/main/config/depends-ubuntu)
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/local/lib/android /opt/ghc /usr/share/dotnet /usr/local/graalvm /usr/local/.ghcup \
+        /usr/local/share/powershell /usr/local/share/chromium /usr/local/lib/node_modules
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
         echo "COMMIT=${{ github.event.inputs.commit }}" >> $GITHUB_ENV
-        
-    - name: Remove old Releases
-      uses: ClementTsang/delete-tag-and-release@main
-      with:
-        #keep_latest: 8
-        #delete_tags: true
-        delete_release: true
-        tag_name: lean_test
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+                    
+#    - name: Remove old Releases and Tag
+#      uses: dev-drprasad/delete-older-releases@master
+#      with:
+#        #repo: <owner>/<repoName> 
+#        keep_latest: 2
+#        keep_min_download_counts: 1
+#        delete_expired_data: 7   
+#        delete_tag_pattern: lean_small
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
     - name: Clone source code
       working-directory: /workdir
       run: |
@@ -100,9 +152,6 @@ jobs:
       uses: mxschmitt/action-tmate@master
       timeout-minutes: 30
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: Download package
       id: download
@@ -160,22 +209,16 @@ jobs:
     - name: Generate release tag
       id: tag
       run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
+        echo "RELEASE_TAG=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
         touch release.txt
 
     - name: Upload firmware to release
-      uses: softprops/action-gh-release@master
+      uses: softprops/action-gh-release@v2
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        #tag_name: ${{ steps.tag.outputs.release_tag }}
+        #tag_name: ${{ env.RELEASE_TAG }}
         tag_name: lean_test
         body_path: release.txt
         files: |
           ${{ env.FIRMWARE }}/*
-
-    - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@main
-      with:
-        retain_days: 1
-        keep_minimum_runs: 1
