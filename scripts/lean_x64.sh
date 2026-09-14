@@ -23,6 +23,7 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/more/passwall-luci
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall2 package/more/passwall2-luci
 git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
+git clone https://github.com/leeyeel/WOL-plus package/more/luci-app-WOL-plus
 
 git clone https://github.com/fw876/helloworld
 mv ./helloworld/dns2socks-rust ./package/more/
