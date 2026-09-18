@@ -26,13 +26,13 @@ git clone https://github.com/sbwml/luci-app-mosdns package/more/luci-app-mosdns
 git clone https://github.com/jliveusa/WOL-plus package/more/luci-app-WOL-plus
 git clone https://github.com/jliveusa/luci-app-sftpgo package/more/luci-app-sftpgo
 
-git clone https://github.com/fw876/helloworld
-mv ./helloworld/dns2socks-rust ./package/more/
-mv ./helloworld/v2ray-core ./package/more/
-mv ./helloworld/redsocks2 ./package/more/
-mv ./helloworld/shadow-tls ./package/more/
-mv ./helloworld/lua-neturl ./package/more/
-mv ./helloworld/luci-app-ssr-plus ./package/more/
+# git clone https://github.com/fw876/helloworld
+# mv ./helloworld/dns2socks-rust ./package/more/
+# mv ./helloworld/v2ray-core ./package/more/
+# mv ./helloworld/redsocks2 ./package/more/
+# mv ./helloworld/shadow-tls ./package/more/
+# mv ./helloworld/lua-neturl ./package/more/
+# mv ./helloworld/luci-app-ssr-plus ./package/more/
 
 # Set permission
 chmod -R 755 package/more/
